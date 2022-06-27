@@ -50,7 +50,7 @@ export class BookSearchComponent implements OnInit {
 
   addBookToReadingList(book: Book) {
     this.store.dispatch(addToReadingList({ book }));
-    const bookSnackbarRef = this._snackbar.open(`${book.title} added into reading list`, 'Undo');
+    const bookSnackbarRef = this._snackbar.open(`${book.title} added into reading list`, 'Undo', { duration : 2000 });
     bookSnackbarRef.onAction().subscribe(() => {
       const item: ReadingListItem = {
         bookId: book.id,
